@@ -14,22 +14,38 @@ def add_box( points, x, y, z, width, height, depth ):
 
     
 def add_sphere( points, cx, cy, cz, r, step ):
-    pass
+    sphere = []
+    generate_sphere(sphere, cx, cy, cz, r, step)
+    points.extend(sphere)
 
 def generate_sphere( points, cx, cy, cz, r, step ):
-    n = m = 200
+    n = m = int(1/step)
     for i in range(n):
-        rotationAngle = 2 * math.pi * (i / n)
+        rotationAngle = pi * i / n
         for j in range(m):
-            circleAngle = 2 * math.pi * (j / m)
-            x = r * math.cos(circleAngle) + cx
-            y = r * math.sin(circleAngle)
+            circleAngle = 2 * pi * j / m
+            x = r * cos(circleAngle) + cx
+            y = r * sin(circleAngle) * cos(rotationAngle) + cy
+            z = r * sin(circleAngle) * sin(rotationAngle) + cz
+            add_point(points, x, y, z)
+            add_point(points, x, y, z)
 
 def add_torus( points, cx, cy, cz, r0, r1, step ):
-    pass
+    torus = []
+    generate_torus(torus, cx, cy, cz, r0, r1, step)
+    points.extend(torus)
 
 def generate_torus( points, cx, cy, cz, r0, r1, step ):
-    pass
+    n = m = int(1/step)
+    for i in range(n):
+        rotationAngle = 2 * pi * i / n
+        for j in range(m):
+            circleAngle = 2 * pi * j / m
+            x = cos(rotationAngle) * (r0 * cos(circleAngle) + r1) + cx
+            y = r0 * sin(circleAngle) + cy
+            z = - sin(rotationAngle) * (r0 * cos(circleAngle) + r1) + cz
+            add_point(points, x, y, z)
+            add_point(points, x, y, z)
 
 def add_circle( points, cx, cy, cz, r, step ):
     x0 = r + cx
