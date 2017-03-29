@@ -1,0 +1,43 @@
+torus
+0 0 0 1 140
+ident
+rotate
+z -40
+rotate
+y -10
+apply
+torus
+0 0 0 1 140
+ident
+rotate
+z 90
+rotate
+y 0
+apply
+torus
+0 0 0 1 140
+ident
+rotate
+z -30
+rotate
+y 30
+move
+250 240 0
+apply
+sphere
+250 250 0 10
+sphere
+267 244 0 10
+sphere
+245 240 0 10
+sphere
+255 238 0 10
+sphere
+252 240 0 10
+sphere
+235 250 0 10
+box
+75 75 75 350 350 350
+display
+save
+pic.png
