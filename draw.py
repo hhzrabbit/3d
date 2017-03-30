@@ -21,9 +21,9 @@ def add_sphere( points, cx, cy, cz, r, step ):
 def generate_sphere( points, cx, cy, cz, r, step ):
     n = m = int(1/step)
     for i in range(n):
-        rotationAngle = pi * i / n
+        rotationAngle = 2 * pi * i / n
         for j in range(m):
-            circleAngle = 2 * pi * j / m
+            circleAngle = pi * j / m
             x = r * cos(circleAngle) + cx
             y = r * sin(circleAngle) * cos(rotationAngle) + cy
             z = r * sin(circleAngle) * sin(rotationAngle) + cz
